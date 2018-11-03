@@ -33,21 +33,11 @@ describe('jQuery', function () {
   it('should able to request https://raw.githubusercontent.com/FE-star/exercise1/master/test/test.js', function (done) {
     // 使用 jQuery.ajax 请求 https://raw.githubusercontent.com/FE-star/exercise1/master/test/test.js，并验证是否拿到文件
     const url = 'https://raw.githubusercontent.com/FE-star/exercise1/master/test/test.js';
-      $.ajax( 
-        {
-        url:url,
-        type : "get",
-        async:false,
-        dataType : "jsonp",
-        jsonp: "jsoncallback",
+      $.ajax(url, {
         success: function (data) {
           ( data !== null).should.be.true;
           done();
         }
       })
-      function jsoncallback(data) {
-        console.log(data);
-      }
-   
   })
 })
